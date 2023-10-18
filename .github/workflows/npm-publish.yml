@@ -19,7 +19,7 @@ jobs:
           node-version: 16
       - run: cd my-test
       - run: npm ci
-      - run: npm test
+      - run: npm run test
 
   publish-npm:
     needs: build
