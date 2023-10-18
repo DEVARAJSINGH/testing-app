@@ -19,9 +19,22 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: cd my-test
-      - run: npm ci
-      - run: npm run test
+      - name: Install dependencies
+        run: |
+          cd my-test
+          npm ci
+      - name: Build the app
+        run: |
+          cd my-test
+          npm run build
+      - name: Run component tests
+        run: |
+          cd my-test
+          npm run test
+      # - run: cd my-test
+      # - run: npm ci
+      # - run: npm run build --if-present
+      # - run: npm run test
 
   # publish-npm:
   #   needs: build
